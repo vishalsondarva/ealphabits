@@ -2353,6 +2353,39 @@ html body h6 {
   }
 }
 
+.msg_wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: white;
+  z-index: 99999999999;
+  text-align: center;
+  padding: 0.5rem;
+  display: none;
+}
+
+@media (max-width: 1260px) {
+  .msg_wrap {
+    display: -ms-grid;
+    display: grid;
+  }
+}
+
+.msg_wrap h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
 .btn {
   cursor: pointer;
   display: inline-block;
