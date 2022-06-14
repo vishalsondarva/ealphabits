@@ -1,0 +1,180 @@
+:root {
+    --header-height: 140px;
+    // --banner-height: 600px;
+    @include size(max-1560){
+        --header-height: 100px;
+    }
+}
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    transition: height 400ms, box-shadow 400ms;
+    &.fixed {
+        // position: fixed;
+        height: calc(var(--header-height) - 80px);
+        background-color: rgba(#000, 0.6);
+        box-shadow: 0 12px 22px -10px rgba(#000, 0.075);
+        .logo_wrap {
+            a {
+                img {
+                    &.white {
+                        // display: none;
+                    }
+                    &.black {
+                    //     display: block !important;
+                    }
+                }
+            }
+        }
+    }
+    .header_row {
+        align-items: center;
+        .logo_wrap {
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                    animation-name: fadeInFor;
+                    animation-duration: 200ms + 200ms * $i;
+                }
+            }
+            a {
+                max-width: 300px;
+                display: inline-block;
+                @include size(max-1560){
+                    max-width: 250px;
+                }
+                img {
+                    display: block;
+                    &.black {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .nva_wrap {
+            .nav {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: grid;
+                flex-wrap: wrap;
+                justify-content: right;
+                align-items: center;
+                // column-gap: 1rem;
+                .item {
+                    list-style: none;
+                    grid-row: none;
+                    position: relative;
+                    @for $i from 1 through 8 {
+                        &:nth-child(#{$i}) {
+                            animation-name: fadeInFor;
+                            animation-duration: 200ms + 200ms * $i;
+                        }
+                    }
+                    .link {
+                        display: inline-block;
+                        text-decoration: none;
+                        color: white;
+                        font-size: 1.3125rem;
+                        font-weight: 400;
+                        padding: 0.75rem 1rem;
+                        transition: color 400ms;
+                        @include size(max-1560){
+                            font-size: 1.125rem;
+                        }
+                        &:hover,
+                        &:focus {
+                            color: $clr-primary--300;
+                        }
+                    }
+                    &.active {
+                        .link {
+                            color: $clr-primary--300;
+                        }
+                    }
+                    &.sub_menu {
+                        > .link {
+                            padding-right: calc(1rem + 14px);
+                            position: relative;
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 54%;
+                                right: 8px;
+                                transform: translateY(-50%);
+                                width: 0;
+                                height: 0;
+                                border-left: 7px solid transparent;
+                                border-right: 7px solid transparent;
+                                border-top: 7px solid white;
+                                transition: border-color 400ms;
+                                @include size(max-1560){
+                                    border-width: 6px;
+                                }
+                            }
+                            &:hover {
+                                &::before {
+                                    border-top-color: $clr-primary--300;
+                                }
+                            }
+                        }
+                        &:hover {
+                            > .link {
+                                color: $clr-primary--300;
+                                &::before {
+                                    border-top-color: $clr-primary--300;
+                                }
+                            }
+                            .sub_menu__wrap {
+                                display: block;
+                            }
+                        }
+                        .sub_menu__wrap {
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            min-width: 240px;
+                            background-color: rgba(#000, 0.5);
+                            border-radius: 6px;
+                            padding: 0.75rem;
+                            overflow: hidden;
+                            box-shadow: 0 2px 18px -2px rgba(#fff, 0.1);
+                            display: none;
+                            @for $i from 1 through 2 {
+                                &:nth-child(#{$i}) {
+                                    animation-name: fadeInForUp;
+                                    animation-duration: 200ms;
+                                }
+                            }
+                            .nav {
+                                grid-template-columns: 1fr;
+                                .item {
+                                    grid-row: auto;
+                                    @for $i from 1 through 6 {
+                                        &:nth-child(#{$i}) {
+                                            animation-name: fadeInFor;
+                                            animation-duration: 200ms + 200ms * $i;
+                                        }
+                                    }
+                                    .link {
+                                        display: block;
+                                        padding: 0.5rem 0.75rem;
+                                        font-size: 1.125rem;
+                                        @include size(max-1560){
+                                            font-size: 1rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

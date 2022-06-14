@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    &::after,
+    &::before {
+        box-sizing: border-box;
+    }
+    &::selection {
+        background-color: $clr-primary--300;
+        color: white;
+    }
+}
+
+html {
+    padding: 0px;
+    margin: 0px;
+    // scroll-behavior: smooth;
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-family: "SFProDisplay", sans-serif;
+        font-weight: normal;
+        font-size: 1rem;
+        background-color: white;
+        color: #333;
+        width: 100%;
+        overflow-x: hidden;
+        min-width: 360px;
+        line-height: normal;
+        .body_wrap {
+            width: 100%;
+            overflow: hidden;
+            overflow-x: hidden;
+        }
+
+        strong,
+        h1,
+        h2 {
+            line-height: normal;
+            font-weight: bold;
+            color: #000;
+        }
+
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: normal;
+            font-weight: bold;
+            color: #222;
+        }
+    }
+}
+
+
+
+section.py-3{
+    @include size(max-1560){
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+section.py-4{
+    @include size(max-1560){
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}

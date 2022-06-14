@@ -1,0 +1,28 @@
+// abstracts
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+// vendors
+@import "vendors/normalize";
+@import "vendors/containers";
+
+// base
+@import "base/fonts";
+@import "base/common";
+
+// components
+@import "components/buttons";
+@import "components/titles";
+@import "components/slickSlider";
+
+// layout
+@import "layout/forms";
+@import "layout/header";
+@import "layout/banner";
+@import "layout/footer";
+
+// pages
+@import "pages/commonSections";
+@import "pages/home";
+
+

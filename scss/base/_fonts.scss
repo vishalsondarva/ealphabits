@@ -1,0 +1,38 @@
+// SFProDisplay
+@font-face {
+    font-family: "SFProDisplay";
+    src: url("../fonts/SFProDisplay-Regular.woff2") format("woff2"), 
+        url("../fonts/SFProDisplay-Regular.woff") format("woff"),
+        url("../fonts/SFProDisplay-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "SFProDisplay";
+    src: url("../fonts/SFProDisplay-Medium.woff2") format("woff2"), 
+        url("../fonts/SFProDisplay-Medium.woff") format("woff"),
+        url("../fonts/SFProDisplay-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "SFProDisplay";
+    src: url("../fonts/SFProDisplay-Bold.woff2") format("woff2"), 
+        url("../fonts/SFProDisplay-Bold.woff") format("woff"),
+        url("../fonts/SFProDisplay-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+.SFProDisplay_font {
+    font-family: "SFProDisplay", sans-serif;
+}
+
+/* Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
+.Montserrat_font {
+    font-family: 'Montserrat', 'SFProDisplay', sans-serif;
+}

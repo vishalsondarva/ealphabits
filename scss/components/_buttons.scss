@@ -1,0 +1,108 @@
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    user-select: none;
+    background-image: none;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    line-height: normal;
+    background-color: #efefef;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: 0.65em 2em;
+    margin-bottom: 0.25rem;
+    margin-right: 0.25rem;
+    transition: background-color 400ms, color 400ms, border-color 400ms, transform 400ms;
+    @include size(max-1560){
+        font-size: 1rem;
+    }
+    &:last-child{
+        margin-right: 0;
+    }
+    &:only-child{
+        margin-bottom: 0;
+        margin-right: 0;
+    }
+    &:active {
+        outline: none;
+        transform: scale(0.95);
+    }
+    &:hover,
+    &:focus {
+        color: #333;
+        background-color: #ddd;
+    }
+    &[disabled],
+    &.disabled{
+        filter: opacity(0.5);
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    &.btn_primary{
+        background-color: $clr-primary--300;
+        color: white;
+        &:hover,
+        &:focus{
+            background-color: $clr-secondary--400;
+        }
+    }
+
+    &.btn_white_border{
+        background-color: transparent;
+        border-color: white;
+        color: white;
+        &:hover,
+        &:focus{
+            background-color: white;
+            color: #000;
+        }
+    }
+    &.btn_black_border{
+        background-color: transparent;
+        border-color: $clr-dark--900;
+        color: $clr-dark--900;
+        &:hover,
+        &:focus{
+            background-color: $clr-dark--900;
+            color: white;
+        }
+    }
+    &.btn_secondary{
+        background-color: $clr-secondary--400;
+        border-color: $clr-secondary--400;
+        color: white;
+        &:hover,
+        &:focus{
+            background-color: $clr-primary--400;
+            border-color: $clr-primary--400;
+        }
+    }
+    &.btn_sec_border{
+        background-color: transparent;
+        border-color: $clr-secondary--400;
+        color: $clr-secondary--400;
+        &:hover,
+        &:focus{
+            background-color: $clr-secondary--400;
+            color: white;
+        }
+    }
+    &.btn_pri_border{
+        background-color: transparent;
+        border-color: $clr-primary--400;
+        color: $clr-primary--400;
+        &:hover,
+        &:focus{
+            background-color: $clr-primary--400;
+            color: white;
+        }
+    }
+}
