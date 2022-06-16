@@ -1,8 +1,14 @@
 :root {
     --header-height: 140px;
     // --banner-height: 600px;
-    @include size(max-1560){
+    @include size(max-1560) {
         --header-height: 100px;
+    }
+    @include size(max-1200) {
+        --header-height: 80px;
+    }
+    @include size(max-767) {
+        --header-height: 60px;
     }
 }
 .header {
@@ -27,7 +33,7 @@
                         // display: none;
                     }
                     &.black {
-                    //     display: block !important;
+                        //     display: block !important;
                     }
                 }
             }
@@ -45,8 +51,14 @@
             a {
                 max-width: 300px;
                 display: inline-block;
-                @include size(max-1560){
+                @include size(max-1560) {
                     max-width: 250px;
+                }
+                @include size(max-1200) {
+                    max-width: 200px;
+                }
+                @include size(max-767) {
+                    max-width: 160px;
                 }
                 img {
                     display: block;
@@ -57,6 +69,64 @@
             }
         }
         .nva_wrap {
+            @include size(max-767){
+                padding-right: 0px;
+            }
+            .nav_toggle_wrap {
+                text-decoration: none;
+                display: none;
+                -webkit-tap-highlight-color: transparent;
+                @include size(max-991) {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: 0;
+                    width: var(--header-height);
+                    height: var(--header-height);
+                    border-radius: var(--header-height);
+                }
+                path {
+                    fill: none;
+                    stroke: #ffffff;
+                    stroke-width: 3;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    --length: 24;
+                    --offset: -38;
+                    stroke-dasharray: var(--length) var(--total-length);
+                    stroke-dashoffset: var(--offset);
+                    transition: all 400ms cubic-bezier(0.645, 0.045, 0.355, 1);
+                }
+                circle {
+                    fill: rgba(255, 255, 255, 0.1);
+                }
+                .open svg {
+                    .line--1,
+                    .line--3 {
+                        --length: 22.627416998;
+                    }
+                    .line--2 {
+                        --length: 0;
+                    }
+                }
+                .menu--1 {
+                    .line--1,
+                    .line--3 {
+                        --total-length: 126.64183044433594;
+                    }
+                    .line--2 {
+                        --total-length: 70;
+                    }
+                    &.open svg {
+                        .line--1,
+                        .line--3 {
+                            --offset: -94.1149185097;
+                        }
+                        .line--2 {
+                            --offset: -50;
+                        }
+                    }
+                }
+            }
             .nav {
                 list-style: none;
                 padding: 0;
@@ -66,6 +136,21 @@
                 justify-content: right;
                 align-items: center;
                 // column-gap: 1rem;
+                @include size(max-991) {
+                    display: none;
+                    position: fixed;
+                    top: var(--header-height);
+                    left: 0;
+                    background: rgba(255, 255, 255, 1);
+                    width: calc(100% - 1rem * 2);
+                    margin-left: 1rem;
+                    border-radius: 6px;
+                    padding: 1.5rem 1.5rem;
+                    box-shadow: 0 6px 22px rgba(#000, 0.1);
+                }
+                @include size(max-767) {
+                    padding: 0.75rem 1rem;
+                }
                 .item {
                     list-style: none;
                     grid-row: none;
@@ -84,8 +169,22 @@
                         font-weight: 400;
                         padding: 0.75rem 1rem;
                         transition: color 400ms;
-                        @include size(max-1560){
+                        @include size(max-1560) {
                             font-size: 1.125rem;
+                        }
+                        @include size(max-1200) {
+                            font-size: 1rem;
+                            padding: 0.5rem 0.75rem;
+                        }
+                        @include size(max-991) {
+                            font-size: 1.25rem;
+                            padding: 0.75rem 0.75rem;
+                            color: #000;
+                            display: block;
+                        }
+                        @include size(max-767) {
+                            font-size: 1.125rem;
+                            padding: 0.5rem 0.75rem;
                         }
                         &:hover,
                         &:focus {
@@ -113,8 +212,14 @@
                                 border-right: 7px solid transparent;
                                 border-top: 7px solid white;
                                 transition: border-color 400ms;
-                                @include size(max-1560){
+                                @include size(max-1560) {
                                     border-width: 6px;
+                                }
+                                @include size(max-991) {
+                                    border-top-color: #222;
+                                }
+                                @include size(max-767) {
+                                    border-width: 5px;
                                 }
                             }
                             &:hover {
@@ -123,15 +228,36 @@
                                 }
                             }
                         }
-                        &:hover {
-                            > .link {
-                                color: $clr-primary--300;
-                                &::before {
-                                    border-top-color: $clr-primary--300;
+                        @include size(min-991) {
+                            &:hover {
+                                > .link {
+                                    color: $clr-primary--300;
+                                    &::before {
+                                        border-top-color: $clr-primary--300;
+                                    }
+                                }
+                                .sub_menu__wrap {
+                                    display: block;
                                 }
                             }
-                            .sub_menu__wrap {
-                                display: block;
+                        }
+                        @include size(max-991) {
+                            &.showSub {
+                                .sub_menu__wrap {
+                                    display: block;
+                                    position: static;
+                                    width: 100%;
+                                    padding: 0 0.75rem;
+                                    .nav {
+                                        display: grid;
+                                        position: static;
+                                        background: transparent;
+                                        padding: 0rem;
+                                        margin: 0;
+                                        width: 100%;
+                                        box-shadow: none;
+                                    }
+                                }
                             }
                         }
                         .sub_menu__wrap {
@@ -151,6 +277,13 @@
                                     animation-duration: 200ms;
                                 }
                             }
+                            @include size(max-991) {
+                                background-color: transparent;
+                                box-shadow: none;
+                            }
+                            @include size(max-767) {
+                                padding: 0 0.5rem;
+                            }
                             .nav {
                                 grid-template-columns: 1fr;
                                 .item {
@@ -165,8 +298,15 @@
                                         display: block;
                                         padding: 0.5rem 0.75rem;
                                         font-size: 1.125rem;
-                                        @include size(max-1560){
+                                        @include size(max-1560) {
                                             font-size: 1rem;
+                                        }
+                                        @include size(max-991) {
+                                            color: #333;
+                                            font-size: 1rem;
+                                        }
+                                        @include size(max-767) {
+                                            padding: 0.4rem 0.75rem;
                                         }
                                     }
                                 }

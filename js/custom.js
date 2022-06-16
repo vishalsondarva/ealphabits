@@ -9,16 +9,32 @@ $(document).ready(function () {
         slidesToShow: 1,
         vertical: true,
         verticalSwiping: true,
+        responsive: [
+            {
+              breakpoint: 991,
+              settings: {
+                swipe: false,
+              },
+            },
+        ],
     });
-    
+
     $(".success_slick").slick({
         infinite: true,
         dots: false,
         arrows: false,
         slidesToShow: 5,
         centerMode: true,
-        focusOnSelect:true,
+        focusOnSelect: true,
         centerPadding: '0px',
+        responsive: [
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 3,
+              },
+            },
+        ],
     });
 
 });
@@ -29,32 +45,16 @@ $(document).ready(function () {
 *************************/
 $(document).ready(function () {
     $("#menuBtn").click(function () {
-        $("#menu").fadeIn(600).removeClass('hideMenu').addClass('showMenu');
-        $("body").delay(100).queue(function (next) {
-            $(this).addClass("oveHidden");
-            next();
-        })
-
+        $('#menuBtn .cross ').toggleClass('open')
+        $('body').toggleClass('oveHidden', 400);
+        $("#menu").slideToggle(400);
+        $('.sub_menu').removeClass('showSub');
     });
 
-    $("#closeMenu").click(function () {
-        $("#menu").fadeOut(600).removeClass('showMenu').addClass('hideMenu');
-        $("body").removeClass("oveHidden", 600);
-    });
+    $("#menu .sub_menu > .link").click(function () {
+        $(this).parent('.sub_menu').toggleClass('showSub').siblings().removeClass('showSub');
 
-    $(document).keyup(function (e) {
-        if (e.keyCode == 27) {
-            $("#menu").fadeOut(600).removeClass('showMenu').addClass('hideMenu');
-            $("body").removeClass("oveHidden", 600);
-        }
-    });
-
-    $(window).ready(function () {
-        $(".menu_links_wrap .sub_menu > .link").click(function () {
-            $(this).parent('.sub_menu').toggleClass('showSub').siblings().removeClass('showSub');
-
-            return false;
-        });
+        return false;
     });
 });
 
@@ -214,8 +214,75 @@ window.onload = function () {
     loader
 *************************/
 $(window).on('load', function () {
-    $('.loader').fadeOut(400);
+    $('.loader_wrap').fadeOut(400);
 });
+
+
+/************************
+    Swiper
+*************************/
+var swiper = new Swiper(".slider_wrap", {
+    loop: true,
+    effect: "coverflow",
+    spaceBetween: 0,
+    grabCursor: false,
+    centeredSlides: true,
+    slidesPerView: 3,
+    slideToClickedSlide: true,
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 300,
+        modifier: 1,
+        slideShadows: true
+    },
+    breakpoints: {
+        '360': {
+            slidesPerView: 2,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true
+            },
+        },
+        '400': {
+            slidesPerView: 2,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 300,
+                modifier: 1,
+                slideShadows: true
+            },
+        },
+        '500': {
+            slidesPerView: 3,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true
+            },
+        },
+        '767': {
+            slidesPerView: 3,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 300,
+                modifier: 1,
+                slideShadows: true
+            },
+        }
+    },
+    pagination: {
+        el: ".swiper-pagination"
+    }
+});
+
 
 
 
@@ -233,3 +300,4 @@ $(document).ready(function () {
         anchorPlacement: 'top-bottom',
     });
 });
+

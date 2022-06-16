@@ -1,9 +1,22 @@
 .sc_title_wrap {
+    @include size(max-991) {
+        text-align: center;
+    }
+    &.mb-2_50,
+    &.mb-3,
+    &.mb-3_50 {
+        @include size(max-1200) {
+            margin-bottom: 2rem;
+        }
+    }
     .main_text {
         &.mb-1_50,
         &.mb-1_25 {
             @include size(max-1560) {
                 margin-bottom: 1rem;
+            }
+            @include size(max-1200) {
+                margin-bottom: 0.5rem;
             }
         }
         h2,
@@ -12,8 +25,17 @@
             color: $clr-dark--900;
             font-weight: 600;
             text-transform: uppercase;
-            @include size(max-1560){
+            @include size(max-1560) {
                 font-size: 2.85rem;
+            }
+            @include size(max-1200) {
+                font-size: 2.4rem;
+            }
+            @include size(max-991) {
+                font-size: 2rem;
+            }
+            @include size(max-767) {
+                font-size: 1.5rem;
             }
             span {
                 color: $clr-primary--200;
@@ -23,14 +45,31 @@
     .sub_text {
         font-size: 1.25rem;
         color: $clr-dark--400;
-        @include size(max-1560){
+        @include size(max-1560) {
             font-size: 1rem;
+        }
+        @include size(max-991) {
+            max-width: 600px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include size(max-767) {
+            font-size: 0.875rem;
+        }
+        &.mb-2,
+        &.mb-2_50 {
+            @include size(max-1200) {
+                margin-bottom: 1rem;
+            }
         }
         &.mx-500 {
             max-width: 500px;
         }
         p {
             margin-bottom: 0.75em;
+            @include size(max-991){
+                margin-bottom: 0.5em;
+            }
         }
     }
     &.tx_white {
@@ -39,16 +78,22 @@
             color: white;
         }
     }
-    &.tx_sm{
-        .main_text{
-            h3{
+    &.tx_sm {
+        .main_text {
+            h3 {
                 font-size: 3rem;
             }
         }
     }
-    &.col_2{
+    &.col_2 {
         display: grid;
         align-items: center;
         grid-template-columns: 1fr 0.75fr;
+        @include size(max-1200) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @include size(max-991) {
+            grid-template-columns: 1fr;
+        }
     }
 }

@@ -6,11 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/swiper-bundle.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <main class="body_wrap">
+        <!-- loader -->
+        <div class="loader_wrap">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- end-loader -->
+
 
         <!-- header -->
         <header class="header" data-aos="fade-up">
@@ -23,10 +35,17 @@
                         </a>
                     </div>
                     <div class="col-md-8 col-sm-4 nva_wrap">
-                        <div class="nav_toggle_wrap">
-
-                        </div>
-                        <ul class="nav">
+                        <a href="#menuToggle" class="nav_toggle_wrap" id="menuBtn">
+                            <div class="menu cross menu--1">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="30" />
+                                    <path class="line--1" d="M0 40h62c13 0 6 28-4 18L35 35" />
+                                    <path class="line--2" d="M0 50h70" />
+                                    <path class="line--3" d="M0 60h62c13 0 6-28-4-18L35 65" />
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="nav " id="menu">
                             <li class="item sub_menu">
                                 <a href="#Service" class="link">Service</a>
                                 <div class="sub_menu__wrap">
@@ -303,6 +322,48 @@
                     </div>
                     <div class="col-md-12 col-lg-8 col_slider">
                         <div class="slider_wrap">
+
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="picture">
+                                        <img src="images/indus-img-01.png" class="img" alt="">
+                                    </div>
+                                    <div class="detail">
+                                        <h3>Consumer Electronics</h3>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="picture">
+                                        <img src="images/indus-img-02.png" class="img" alt="">
+                                    </div>
+                                    <div class="detail">
+                                        <h3>Manufacture Industry</h3>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="picture">
+                                        <img src="images/indus-img-03.png" class="img" alt="">
+                                    </div>
+                                    <div class="detail">
+                                        <h3>Automataive Industry</h3>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="picture">
+                                        <img src="images/indus-img-04.png" class="img" alt="">
+                                    </div>
+                                    <div class="detail">
+                                        <h3>Consumer Electronics</h3>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- If we need pagination -->
+                            <!-- <div class="swiper-pagination"></div> -->
+
+                            <!-- If we need scrollbar -->
+                            <!-- <div class="swiper-scrollbar"></div> -->
+
 
                         </div>
                     </div>
@@ -1083,24 +1144,12 @@
             </div>
         </footer>
         <!-- end-footer -->
-
-
-        <div class="msg_wrap">
-            <div class="content_box">
-                <h2>
-                    This page is not available on this device.
-                </h2>
-                <p>
-                    Please use a desktop or laptop to access the ordering screens.
-                </p>
-            </div>
-        </div>
-
     </main>
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/slick.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/custom.js"></script>
 </body>

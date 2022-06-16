@@ -23,6 +23,16 @@
     @include size(max-1560){
         font-size: 1rem;
     }
+    @include size(max-1200){
+        padding: 0.6em 1.5em;
+    }
+    @include size(max-991){
+        padding: 0.5em 1.25em;
+    }
+    @include size(max-767){
+        font-size: 0.875rem;
+        padding: 0.5em 1.25em;
+    }
     &:last-child{
         margin-right: 0;
     }
