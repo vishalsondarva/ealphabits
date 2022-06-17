@@ -293,20 +293,3 @@ var swiper = new Swiper(".slider_wrap", {
 });
 
 
-
-
-/************************
-    AOS
-*************************/
-$(document).ready(function () {
-    AOS.init({
-        offset: 100,
-        delay: 0,
-        duration: 1400,
-        easing: 'ease',
-        once: false,
-        mirror: false,
-        anchorPlacement: 'top-bottom',
-    });
-});
-
