@@ -3,18 +3,21 @@
 *************************/
 $(document).ready(function () {
     $(".work_slick").slick({
-        infinite: false,
+        infinite: true,
         dots: true,
         arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnHover: false,
         slidesToShow: 1,
         vertical: true,
         verticalSwiping: true,
         responsive: [
             {
-              breakpoint: 991,
-              settings: {
-                swipe: false,
-              },
+                breakpoint: 991,
+                settings: {
+                    swipe: false,
+                },
             },
         ],
     });
@@ -23,16 +26,19 @@ $(document).ready(function () {
         infinite: true,
         dots: false,
         arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnHover: false,
         slidesToShow: 5,
         centerMode: true,
         focusOnSelect: true,
         centerPadding: '0px',
         responsive: [
             {
-              breakpoint: 767,
-              settings: {
-                slidesToShow: 3,
-              },
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 3,
+                },
             },
         ],
     });
@@ -225,10 +231,13 @@ var swiper = new Swiper(".slider_wrap", {
     loop: true,
     effect: "coverflow",
     spaceBetween: 0,
-    grabCursor: false,
+    grabCursor: true,
     centeredSlides: true,
     slidesPerView: 3,
     slideToClickedSlide: true,
+    autoplay: {
+        delay: 3000,
+    },
     coverflowEffect: {
         rotate: 0,
         stretch: 0,

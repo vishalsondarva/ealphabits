@@ -1,5 +1,10 @@
 // techExp_section
 .techExp_section {
+    padding: 1rem 0 !important;
+    @include size(max-991) {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
     .row {
         align-items: center;
         .col_title {
@@ -8,49 +13,125 @@
             }
         }
         .col_table {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+            padding-top: 0rem;
+            padding-bottom: 0rem;
             padding-right: 3rem;
             @include size(max-1560) {
-                padding-top: 1rem;
-                padding-bottom: 1rem;
+                // padding-top: 1rem;
+                // padding-bottom: 1rem;
                 padding-right: 2rem;
             }
             @include size(max-991) {
-                padding: 1rem;
-                padding-top: 2rem;
+                padding: 0 1rem;
+                // padding-top: 2rem;
             }
             @include size(max-767) {
-                padding: 1rem;
-                padding-top: 2rem;
+                padding: 0 1rem;
+                // padding-top: 2rem;
             }
             .table_wrap {
-                background-image: url(../images/techExp-bg-img.png);
+                position: relative;
+                // background-image: url(../images/techExp-bg-img.png);
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: contain;
-                min-height: 600px;
-                padding: 180px 0rem;
+                // min-height: 600px;   
+                padding: 0px 0rem;
                 display: grid;
                 align-items: center;
                 @include size(max-1560) {
-                    padding-top: 120px;
-                    padding-bottom: 80px;
+                    // padding-top: 120px;
+                    // padding-bottom: 80px;
                 }
                 @include size(max-1200) {
-                    padding-top: 50px;
-                    padding-bottom: 20px;
-                    min-height: 500px;
+                    // padding-top: 50px;
+                    // padding-bottom: 20px;
+                    // min-height: 500px;
                 }
                 @include size(max-991) {
-                    padding-top: 40px;
-                    padding-bottom: 20px;
-                    min-height: 450px;
+                    // padding-top: 40px;
+                    // padding-bottom: 20px;
+                    // min-height: 450px;
                 }
                 @include size(max-767) {
-                    padding-top: 0px;
-                    padding-bottom: 0px;
-                    min-height: 400px;
+                    // padding-top: 0px;
+                    // padding-bottom: 0px;
+                    // min-height: 400px;
+                }
+                .svg_wrap {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: -1;
+                    @include size(max-767) {
+                        top: 0;
+                        left: 0;
+                        height: auto;
+                        transform: none;
+                    }
+                    .blob {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .blob path {
+                        animation: blob 9s linear infinite;
+                    }
+                    @keyframes blob {
+                        0% {
+                            d: path(
+                                "M120,-157.6C152.7,-141.5,174.3,-102.6,194.8,-58.8C215.3,-14.9,234.6,33.8,228.4,80.8C222.2,127.8,190.4,173.1,148.1,184C105.8,195,52.9,171.5,-2.4,174.8C-57.8,178.2,-115.6,208.4,-137.5,190.9C-159.3,173.3,-145.3,108,-153,56.3C-160.7,4.6,-190.2,-33.4,-178.3,-54.2C-166.4,-75.1,-113.2,-78.8,-76.6,-93.6C-40,-108.3,-20,-134.2,11.9,-150.5C43.7,-166.8,87.4,-173.6,120,-157.6Z"
+                            );
+                        }
+                        25% {
+                            d: path(
+                                "M67.8,-97.1C87.8,-78.8,103.8,-58.9,117.4,-34.1C130.9,-9.4,142,20.2,139.5,50.7C137,81.2,120.8,112.6,95.3,150.1C69.8,187.7,34.9,231.3,3.3,226.8C-28.2,222.2,-56.4,169.3,-91.6,134.9C-126.8,100.5,-169,84.6,-179.6,57.1C-190.2,29.7,-169.3,-9.3,-155.2,-49.7C-141,-90.1,-133.7,-132,-109,-148.8C-84.2,-165.6,-42.1,-157.3,-9.1,-144.8C23.9,-132.2,47.8,-115.5,67.8,-97.1Z"
+                            );
+                        }
+                        50% {
+                            d: path(
+                                "M137.1,-191.3C172,-163.4,190.6,-115.7,197.2,-70.1C203.8,-24.4,198.5,19.2,178.9,51.5C159.3,83.9,125.5,105,93.3,129.6C61.1,154.1,30.6,182.1,1.1,180.6C-28.4,179.1,-56.8,148.2,-81.2,121.1C-105.6,94.1,-126.1,70.8,-141.6,41.6C-157.2,12.4,-168,-22.9,-153.9,-45C-139.8,-67,-100.7,-76,-70.9,-105.5C-41.1,-135,-20.6,-185,15.3,-206C51.1,-227.1,102.3,-219.1,137.1,-191.3Z"
+                            );
+                        }
+                        75% {
+                            d: path(
+                                "M123.7,-157.1C162.4,-142.2,197.2,-108.8,202.8,-70.8C208.3,-32.9,184.5,9.7,169,54.2C153.6,98.7,146.4,145.2,119.7,162.7C92.9,180.2,46.4,168.6,-1.9,171.1C-50.2,173.7,-100.3,190.4,-122.2,171.3C-144.1,152.3,-137.7,97.5,-144.1,52.7C-150.6,7.9,-169.9,-26.8,-170.5,-64.8C-171,-102.8,-152.8,-144,-121.3,-161.3C-89.7,-178.5,-44.9,-171.8,-1.2,-170.1C42.5,-168.5,85,-172,123.7,-157.1Z"
+                            );
+                        }
+                        100% {
+                            d: path(
+                                "M120,-157.6C152.7,-141.5,174.3,-102.6,194.8,-58.8C215.3,-14.9,234.6,33.8,228.4,80.8C222.2,127.8,190.4,173.1,148.1,184C105.8,195,52.9,171.5,-2.4,174.8C-57.8,178.2,-115.6,208.4,-137.5,190.9C-159.3,173.3,-145.3,108,-153,56.3C-160.7,4.6,-190.2,-33.4,-178.3,-54.2C-166.4,-75.1,-113.2,-78.8,-76.6,-93.6C-40,-108.3,-20,-134.2,11.9,-150.5C43.7,-166.8,87.4,-173.6,120,-157.6Z"
+                            );
+                        }
+                    }
+
+                    .dwf,
+                    .share {
+                        position: fixed;
+                        bottom: 4px;
+                        right: 10px;
+                        background-color: #0003;
+                        padding: 3px;
+                        border-radius: 3px;
+                        .btn {
+                            color: #fff;
+                            text-decoration: none;
+                        }
+                    }
+                    .share {
+                        right: auto;
+                        left: 10px;
+                        border-radius: 50%;
+                        padding: 5px;
+                        .twitter {
+                            width: 20px;
+                            fill: #fff;
+                            stroke: none;
+                            overflow: visible;
+                        }
+                    }
                 }
                 .table_box {
                     background-color: white;
@@ -58,13 +139,17 @@
                     min-height: 300px;
                     border-radius: 10px;
                     padding: 3rem 0;
+                    margin: 120px 0rem;
                     @include size(max-1560) {
+                        margin: 100px 0rem;
                         padding: 2rem 0rem;
                     }
                     @include size(max-1200) {
+                        margin: 60px 0rem;
                         padding: 1.5rem 0rem;
                     }
                     @include size(max-767) {
+                        margin: 50px 0rem 0 0;
                         padding: 0rem;
                         box-shadow: 0 2px 22px rgba(#000, 0.1);
                     }
@@ -619,6 +704,27 @@
 // newsBlog_section
 .newsBlog_section {
     background-color: #f9f7f9;
+    &.bgClr_maire {
+        background-color: #221b04;
+        .sc_title_wrap {
+            .main_text {
+                h3 {
+                    color: white;
+                }
+            }
+        }
+        .content_wrap {
+            color: #8d8d8d;
+            h3 {
+                color: white;
+            }
+        }
+        .btn_wrap {
+            .btn {
+                @extend .btn_white_border;
+            }
+        }
+    }
     .row {
         .col_blog {
             @include size(max-991) {
@@ -792,7 +898,7 @@
                     min-height: 180px;
                     opacity: 0;
                     transition: opacity 400ms;
-                    @include size(max-767){
+                    @include size(max-767) {
                         min-height: 200px;
                     }
                     &::before {
@@ -952,7 +1058,7 @@
     background-color: #000;
     // padding-top: 2rem;
     // padding-bottom: 2rem;
-    @include size(max-767){
+    @include size(max-767) {
         position: relative;
     }
     .row {
@@ -979,7 +1085,7 @@
             }
             .img_wrap {
                 width: 50%;
-                @include size(max-767){
+                @include size(max-767) {
                     position: absolute;
                     width: 100%;
                     z-index: 1;
@@ -1013,7 +1119,7 @@
             .info_wrap {
                 width: 50%;
                 padding: 1rem;
-                @include size(max-767){
+                @include size(max-767) {
                     position: relative;
                     z-index: 2;
                     width: 100%;
@@ -1052,7 +1158,7 @@
                             font-size: 0.875rem;
                         }
                         @include size(max-767) {
-                            font-size: .9rem;
+                            font-size: 0.9rem;
                         }
                     }
                 }
