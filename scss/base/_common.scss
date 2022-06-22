@@ -293,6 +293,43 @@ section.py-4 {
   }
 }
 
-.bg_lightGray{
+.bg_lightGray {
   background-color: #f9f7f9;
+}
+
+// btn_fixed
+.body_wrap.btn_fixed_space {
+  @include size(max-767) {
+    padding-bottom: 40px;
+  }
+}
+.btn_fixed {
+  display: none;
+  position: fixed;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(white, 1);
+  padding-bottom: 2px;
+  padding-left: 0.5px;
+  padding-right: 1px;
+  z-index: 99999;
+  @include size(max-767) {
+    display: block;
+  }
+  .btn_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .btn {
+      margin: 0;
+      width: 100%;
+      border-radius: 0;
+      padding: 0.7rem;
+      &:active {
+        transform: none;
+      }
+    }
+  }
 }

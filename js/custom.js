@@ -57,6 +57,15 @@ $(document).ready(function () {
         $('.sub_menu').removeClass('showSub');
     });
 
+    if ($(window).width() < 991) {
+        $("#menu .link.navLink").click(function () {
+            $('#menuBtn .cross ').removeClass('open')
+            $('body').removeClass('oveHidden', 400);
+            $("#menu").slideUp(400);
+            $('.sub_menu').removeClass('showSub');
+        });
+    }
+
     $("#menu .sub_menu > .link").click(function () {
         $(this).parent('.sub_menu').toggleClass('showSub').siblings().removeClass('showSub');
 
@@ -66,26 +75,64 @@ $(document).ready(function () {
 
 
 /************************
+    smooth Scroll
+*************************/
+$(function () {
+    var headerHeight = $('.header').outerHeight();
+    // console.log(headerHeight);
+    if ($(window).width() < 991) {
+        $('a[href*="#"]:not([href="#"]):not([href="#show"]):not([href="#hide"])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top - headerHeight / 1
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    } else {
+        $('a[href*="#"]:not([href="#"]):not([href="#show"]):not([href="#hide"])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top - headerHeight / 2
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    }
+});
+
+
+/************************
     Scroll to fixed Navbar
 *************************/
-if ($(window).innerWidth() <= 991) {
-    $(window).scroll(function () {
-        var sticky = $('.header, .body_wrap'),
-            scroll = $(window).scrollTop();
+$(function () {
+    var headerHeight = $('.header').outerHeight();
+    if ($(window).innerWidth() <= 991) {
+        $(window).scroll(function () {
+            var sticky = $('.header, .body_wrap'),
+                scroll = $(window).scrollTop();
 
-        if (scroll >= 40) sticky.addClass('fixed');
-        else sticky.removeClass('fixed');
-    });
-} else {
-    $(window).scroll(function () {
-        var sticky = $('.header, .body_wrap'),
-            scroll = $(window).scrollTop();
+            if (scroll >= headerHeight) sticky.addClass('fixed');
+            else sticky.removeClass('fixed');
+        });
+    } else {
+        $(window).scroll(function () {
+            var sticky = $('.header, .body_wrap'),
+                scroll = $(window).scrollTop();
 
-        if (scroll >= 100) sticky.addClass('fixed');
-        else sticky.removeClass('fixed');
-    });
-}
-
+            if (scroll >= headerHeight) sticky.addClass('fixed');
+            else sticky.removeClass('fixed');
+        });
+    }
+});
 
 /************************
     magnificPopup-img

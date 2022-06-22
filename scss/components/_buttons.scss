@@ -114,6 +114,18 @@
         }
     }
 
+    &.btn_primary_border {
+        background-color: transparent;
+        border-color: $clr-primary--300;
+        color: $clr-primary--300;
+        &:hover,
+        &:focus {
+            background-color: $clr-primary--300;
+            color: #fff;
+            transition-delay: 200ms;
+            --bg-color: #d16e51;
+        }
+    }
     &.btn_white_border {
         background-color: transparent;
         border-color: white;
