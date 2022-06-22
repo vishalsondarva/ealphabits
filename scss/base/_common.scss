@@ -1,124 +1,298 @@
 * {
+  box-sizing: border-box;
+  &::after,
+  &::before {
     box-sizing: border-box;
-    &::after,
-    &::before {
-        box-sizing: border-box;
-    }
-    &::selection {
-        background-color: $clr-primary--300;
-        color: white;
-    }
+  }
+  &::selection {
+    background-color: $clr-primary--300;
+    color: white;
+  }
 }
 
 html {
-    padding: 0px;
+  padding: 0px;
+  margin: 0px;
+  // scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 13px;
+    border-radius: 20px;
+    @include size(max-1560) {
+      width: 11px;
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba($clr-primary--300, 0.75);
+    border: solid 3px #f4f4f4;
+    transition: all 400ms;
+    @include size(max-1560) {
+      border: solid 2px #f4f4f4;
+    }
+    &:hover {
+      background-color: rgba($clr-primary--300, 1);
+      cursor: pointer;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #f4f4f4;
+  }
+  body {
     margin: 0px;
-    // scroll-behavior: smooth;
-    body {
-        margin: 0px;
-        padding: 0px;
-        font-family: "SFProDisplay", sans-serif;
-        font-weight: normal;
-        font-size: 1rem;
-        background-color: white;
-        color: #333;
-        width: 100%;
-        overflow-x: hidden;
-        min-width: 360px;
-        line-height: normal;
-        .body_wrap {
-            width: 100%;
-            overflow: hidden;
-            overflow-x: hidden;
-        }
-        &.oveHidden{
-            overflow: hidden;
-        }
-        strong,
-        h1,
-        h2 {
-            line-height: normal;
-            font-weight: bold;
-            color: #000;
-        }
-
-        h3,
-        h4,
-        h5,
-        h6 {
-            line-height: normal;
-            font-weight: bold;
-            color: #222;
-        }
+    padding: 0px;
+    font-family: "SFProDisplay", sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+    background-color: white;
+    color: #333;
+    width: 100%;
+    overflow-x: hidden;
+    min-width: 360px;
+    line-height: normal;
+    .body_wrap {
+      width: 100%;
+      overflow: hidden;
+      overflow-x: hidden;
     }
+    &.oveHidden {
+      overflow: hidden;
+    }
+    strong,
+    h1,
+    h2 {
+      line-height: normal;
+      font-weight: bold;
+      color: #000;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: normal;
+      font-weight: bold;
+      color: #222;
+    }
+  }
 }
 
-
-
-section.py-3{
-    @include size(max-1560){
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
+section.py-3 {
+  @include size(max-1560) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
-section.py-4{
-    @include size(max-1560){
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
-    @include size(max-767){
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
+section.py-4 {
+  @include size(max-1560) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  @include size(max-767) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
-
 
 // loader_wrap
-.loader_wrap{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999999;
-    background-color: rgba(255, 255, 255, 0.98);
-    .lds-ring {
-        display: inline-block;
-        position: relative;
-        width: 80px;
-        height: 80px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+.loader_wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  background-color: rgba(255, 255, 255, 0.98);
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 68px;
+    height: 68px;
+    margin: 8px;
+    border: 6px solid $clr-primary--300;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: $clr-primary--300 transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// breadcrumbs
+.breadcrumbs {
+  text-align: center;
+  padding: 2rem 0;
+  @include size(max-1560) {
+    padding: 1.5rem 0;
+    &.mt-2 {
+      margin-top: 1rem;
+    }
+  }
+  @include size(max-767) {
+    padding: 1rem 0;
+    margin-top: 0rem;
+  }
+  ul {
+    display: inline-flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+  }
+  li {
+    color: $clr-primary--300;
+    font-weight: 500;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    @include size(max-1560) {
+      font-size: 1.125rem;
+    }
+    @include size(max-767) {
+      font-size: 1rem;
+    }
+    a {
+      color: $clr-dark--900;
+      font-size: 1.25rem;
+      display: block;
+      font-weight: 500;
+      text-decoration: none;
+      -webkit-transition: opacity 400ms;
+      transition: opacity 400ms;
+      @include size(max-1560) {
+        font-size: 1.125rem;
       }
-      .lds-ring div {
-        box-sizing: border-box;
-        display: block;
-        position: absolute;
-        width: 68px;
-        height: 68px;
-        margin: 8px;
-        border: 6px solid $clr-primary--300;
-        border-radius: 50%;
-        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: $clr-primary--300 transparent transparent transparent;
+      @include size(max-767) {
+        font-size: 1rem;
       }
-      .lds-ring div:nth-child(1) {
-        animation-delay: -0.45s;
+      &:hover,
+      &:focus {
+        opacity: 0.65;
       }
-      .lds-ring div:nth-child(2) {
-        animation-delay: -0.3s;
+    }
+  }
+}
+
+// pagination_wrap
+.pagination_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-top: solid 2px #eaf3ec;
+  @include size(max-767) {
+    gap: 0.25rem;
+  }
+  .txt_400 {
+    font-weight: 500 !important;
+  }
+  > .number_wrap {
+    padding: 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    @media (max-width: 767px) {
+      gap: 0.5rem;
+    }
+  }
+  > .page-numbers {
+    cursor: pointer;
+    text-decoration: none;
+    // border: solid 1px #b5b7bc;
+    border-top: solid 2px transparent;
+    margin-top: -1px;
+    color: #767676;
+    font-size: 1.25rem;
+    font-weight: 600;
+    width: 50px;
+    padding: 1.125em 0;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: color 400ms, border-color 400ms, background-color 400ms;
+    @media (max-width: 1560px) {
+      font-size: 1.125rem;
+    }
+    @media (max-width: 767px) {
+      font-size: 1rem;
+    }
+    &:hover,
+    &:focus,
+    &.current {
+      color: #444;
+      // border-color: $clr-dark--400;
+      // background-color: rgba($clr-dark--800, 0.15);
+    }
+    &.current {
+      color: #333;
+      border-top: solid 2px #606060;
+    }
+    &.dots {
+      border: none;
+      width: auto;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      padding: 0 0.25rem;
+      &:hover,
+      &:focus {
+        background-color: transparent;
       }
-      .lds-ring div:nth-child(3) {
-        animation-delay: -0.15s;
+    }
+  }
+  .page_btn,
+  .prev,
+  .next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: none;
+    transition: filter 400ms;
+    img {
+      width: 15px;
+      filter: opacity(0.5);
+      pointer-events: none;
+      transition: filter 400ms, background-image 400ms;
+      @media (max-width: 1560px) {
+        width: 13px;
       }
-      @keyframes lds-ring {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
+    }
+    &:hover,
+    &:focus {
+      img {
+        filter: invert(0);
       }
-      
+    }
+  }
+}
+
+.bg_lightGray{
+  background-color: #f9f7f9;
 }

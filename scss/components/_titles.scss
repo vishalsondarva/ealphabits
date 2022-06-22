@@ -25,6 +25,9 @@
             color: $clr-dark--900;
             font-weight: 600;
             text-transform: uppercase;
+            img{
+                max-height: 0.75em;
+            }
             @include size(max-1560) {
                 font-size: 2.85rem;
             }
@@ -82,6 +85,13 @@
         .main_text {
             h3 {
                 font-size: 3rem;
+            }
+        }
+    }
+    &.tx_trasNone {
+        .main_text {
+            h3 {
+                text-transform: unset;
             }
         }
     }

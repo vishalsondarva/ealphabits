@@ -20,23 +20,68 @@
     margin-bottom: 0.25rem;
     margin-right: 0.25rem;
     transition: background-color 400ms, color 400ms, border-color 400ms, transform 400ms;
-    @include size(max-1560){
+
+    position: relative;
+    overflow: hidden;
+    --bg-color: #efefef;
+    > span{
+        position: relative;
+        z-index: 2;
+    }
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        transition: all 400ms;
+        z-index: 1;
+    }
+
+    &:before {
+        right: calc(0.65rem * -4);
+        border-right: calc(0.65rem * 4) solid transparent;
+        border-bottom: calc(0.65rem * 6) solid var(--bg-color);
+        transform: translateX(-100%);
+    }
+
+    &:after {
+        left: calc(0.65rem * -4);
+        border-left: calc(0.65rem * 4) solid transparent;
+        border-top: calc(0.65rem * 6) solid var(--bg-color);
+        transform: translateX(100%);
+    }
+
+    &:hover,
+    &:focus {
+        &:before {
+            transform: translateX(-49%);
+        }
+        &:after {
+            transform: translateX(49%);
+        }
+    }
+
+    @include size(max-1560) {
         font-size: 1rem;
     }
-    @include size(max-1200){
+    @include size(max-1200) {
         padding: 0.6em 1.5em;
     }
-    @include size(max-991){
+    @include size(max-991) {
         padding: 0.5em 1.25em;
     }
-    @include size(max-767){
+    @include size(max-767) {
         font-size: 0.875rem;
         padding: 0.5em 1.25em;
     }
-    &:last-child{
+    &:last-child {
         margin-right: 0;
     }
-    &:only-child{
+    &:only-child {
         margin-bottom: 0;
         margin-right: 0;
     }
@@ -50,67 +95,88 @@
         background-color: #ddd;
     }
     &[disabled],
-    &.disabled{
+    &.disabled {
         filter: opacity(0.5);
         cursor: not-allowed;
         pointer-events: none;
     }
 
-    &.btn_primary{
+    &.btn_primary {
         background-color: $clr-primary--300;
+        border-color: $clr-primary--300;
         color: white;
         &:hover,
-        &:focus{
-            background-color: $clr-secondary--400;
+        &:focus {
+            // background-color: $clr-primary--300;
+            color: $clr-primary--300;
+            transition-delay: 200ms;
+            --bg-color: #fff;
         }
     }
 
-    &.btn_white_border{
+    &.btn_white_border {
         background-color: transparent;
         border-color: white;
         color: white;
         &:hover,
-        &:focus{
+        &:focus {
             background-color: white;
             color: #000;
+            transition-delay: 200ms;
+            --bg-color: white;
         }
     }
-    &.btn_black_border{
+    &.btn_black_border {
         background-color: transparent;
-        border-color: $clr-dark--900;
-        color: $clr-dark--900;
+        border-color: #000;
+        color: #000;
         &:hover,
-        &:focus{
-            background-color: $clr-dark--900;
+        &:focus {
+            // background-color: #000;
             color: white;
+            transition-delay: 200ms;
+            --bg-color: #000;
         }
     }
-    &.btn_secondary{
+    &.btn_white {
+        background-color: white;
+        border-color: #fff;
+        color: #000;
+        &:hover,
+        &:focus {
+            // border: #000;
+            color: white;
+            // transition-delay: 200ms;
+            --bg-color: #0000;
+            background-color: transparent;
+        }
+    }
+    &.btn_secondary {
         background-color: $clr-secondary--400;
         border-color: $clr-secondary--400;
         color: white;
         &:hover,
-        &:focus{
+        &:focus {
             background-color: $clr-primary--400;
             border-color: $clr-primary--400;
         }
     }
-    &.btn_sec_border{
+    &.btn_sec_border {
         background-color: transparent;
         border-color: $clr-secondary--400;
         color: $clr-secondary--400;
         &:hover,
-        &:focus{
+        &:focus {
             background-color: $clr-secondary--400;
             color: white;
         }
     }
-    &.btn_pri_border{
+    &.btn_pri_border {
         background-color: transparent;
         border-color: $clr-primary--400;
         color: $clr-primary--400;
         &:hover,
-        &:focus{
+        &:focus {
             background-color: $clr-primary--400;
             color: white;
         }

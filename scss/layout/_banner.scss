@@ -1,12 +1,12 @@
 .banner {
     // min-height: calc(var(--banner-height) + var(--header-height));
     position: relative;
-    .banner_img{
+    .banner_img {
         position: relative;
         // max-height: 1000px;
         overflow: hidden;
-        &::before{
-            content: '';
+        &::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
@@ -14,7 +14,7 @@
             height: 100%;
             background-color: rgba(#000, 0.6);
         }
-        img{
+        img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -39,60 +39,167 @@
             text-align: center;
             max-width: 1200px;
             margin: auto;
-            @include size(max-1200){
+            @include size(max-1200) {
                 max-width: 800px;
             }
-            @include size(max-991){
+            @include size(max-991) {
                 max-width: 500px;
             }
-            @include size(max-767){
+            @include size(max-767) {
                 max-width: 400px;
                 padding: 0 2rem;
                 padding-top: 2.5rem;
             }
-            .main_text{
+            .main_text {
                 margin-bottom: 4rem;
-                @include size(max-1200){
+                @include size(max-1200) {
                     margin-bottom: 2.5rem;
                 }
-                @include size(max-991){
+                @include size(max-991) {
                     margin-bottom: 2rem;
                 }
-                @include size(max-767){
+                @include size(max-767) {
                     margin-bottom: 1.25rem;
                 }
-                > *{
+                > * {
                     font-size: 9rem;
                     font-weight: bold;
-                    font-family: 'Montserrat', 'SFProDisplay', sans-serif;
+                    font-family: "Montserrat", "SFProDisplay", sans-serif;
                     color: white;
                     // line-height: 1;
                     margin: 0;
-                    @include size(max-1560){
+                    @include size(max-1560) {
                         font-size: 7rem;
                     }
-                    @include size(max-1200){
+                    @include size(max-1200) {
                         font-size: 5rem;
                     }
-                    @include size(max-991){
+                    @include size(max-991) {
                         font-size: 3rem;
                     }
-                    @include size(max-767){
+                    @include size(max-767) {
                         font-size: 2rem;
                     }
-                    .type_text{
+                    .type_text {
                         color: $clr-primary--300;
                         font-weight: 600;
                     }
                 }
             }
-            .btn_wrap{
-                .btn{
+            .btn_wrap {
+                .btn {
                     // font-size: 1rem;
                     // min-width: 180px;
-                    @include size(max-767){
+                    @include size(max-767) {
                         font-size: 0.75rem;
                     }
+                }
+            }
+        }
+    }
+}
+
+.innerPg_banner {
+    .row {
+        .col_content {
+            .content_wrap {
+                .sc_title_wrap {
+                    @include size(max-991) {
+                        text-align: left;
+                    }
+                    @include size(max-767) {
+                        text-align: center;
+                    }
+                    .main_text {
+                        > * {
+                            text-transform: unset;
+                            font-size: 5.375rem;
+                            @include size(max-1560) {
+                                font-size: 4.5rem;
+                            }
+                            @include size(max-1200) {
+                                font-size: 3.5rem;
+                            }
+                            @include size(max-991) {
+                                font-size: 2.75rem;
+                            }
+                            @include size(max-767) {
+                                font-size: 2.25rem;
+                                br{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    .list_wrap {
+                        list-style: none;
+                        padding: 0;
+                        margin: 1rem 0;
+                        display: flex;
+                        flex-wrap: wrap;
+                        @include size(max-991) {
+                            justify-content: center;
+                        }
+                        li {
+                            font-size: 1.25rem;
+                            color: #000;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                            padding: 0 1em;
+                            border-right: solid 1px #989898;
+                            @include size(max-1560) {
+                                font-size: 1.125rem;
+                            }
+                            @include size(max-1200) {
+                                font-size: 1rem;
+                            }
+                            @include size(max-991) {
+                                font-size: 0.875rem;
+                                margin-bottom: 0.5em;
+                                padding: 0 0.75em !important;
+                            }
+                            &:first-child {
+                                padding-left: 0;
+                            }
+                            &:last-child {
+                                padding-right: 0;
+                                border-right: none;
+                            }
+                            a {
+                                text-decoration: none;
+                                color: #000;
+                                transition: color 400ms;
+                                &:hover {
+                                    color: $clr-primary--300;
+                                }
+                            }
+                        }
+                    }
+                    .btn_wrap {
+                        @include size(max-1200) {
+                            margin-top: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+        .col_img {
+            .img_wrap {
+                text-align: right;
+                @include size(max-767) {
+                    text-align: center;
+                }
+                img {
+                    @include size(max-1200) {
+                        max-width: 300px;
+                    }
+                    @include size(max-991) {
+                        max-width: 250px;
+                    }
+                    @include size(max-767) {
+                        max-width: 200px;
+                    }
+                   
                 }
             }
         }
